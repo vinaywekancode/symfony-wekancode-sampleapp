@@ -1,0 +1,11 @@
+user:
+    resource: "@UserBundle/Resources/config/routing.php"
+    prefix:   /
+
+auth:
+    resource: "@AuthBundle/Resources/config/routing.php"
+    prefix:   /
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
