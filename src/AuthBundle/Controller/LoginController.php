@@ -2,7 +2,6 @@
 
 namespace AuthBundle\Controller;
 
-use AuthBundle\Contracts\JwtAuthenticatedController;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use UserBundle\Entity\User;
@@ -10,7 +9,7 @@ use AppBundle\Traits\JsonResponseTrait;
 use AuthBundle\Validators\FormValidator;
 use AuthBundle\Traits\JwtTrait;
 
-class LoginController extends Controller implements JwtAuthenticatedController
+class LoginController extends Controller
 {
     use JsonResponseTrait, JwtTrait;
 
