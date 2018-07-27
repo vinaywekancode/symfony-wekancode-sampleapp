@@ -8,9 +8,9 @@ Use UserBundle\Entity\User;
 
 trait Policy
 {
-    public function checkAccess(array $decodedToken, User $user = null)
+    public function canView(array $decodedToken, User $user = null)
     {
-       
+
        if($decodedToken["role"] === "ROLE_ADMIN"){
            return true;
        }
@@ -20,5 +20,10 @@ trait Policy
        }
 
        return true;
+    }
+
+    public function canViewAllUsers(array $decodedToken)
+    {
+        return $decodedToken["role"] === "ROLE_ADMIN";
     }
 }
