@@ -9,6 +9,7 @@ use AuthBundle\Traits\JwtTrait;
 use AuthBundle\Validators\FormValidator;
 use Symfony\Component\HttpFoundation\Request;
 use Carbon\Carbon;
+use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 
 class RegisterController extends Controller
 {
@@ -16,6 +17,23 @@ class RegisterController extends Controller
 
     private $userRepo;
 
+    /**
+     * @ApiDoc(
+     *      resource=false,
+     *      description="To register user",
+     *      parameters={
+     *            {"name"="name", "dataType"="string", "required"=true, "description"="name field"},
+     *            {"name"="email", "dataType"="string", "required"=true, "description"="email field"},
+     *            {"name"="password", "dataType"="string", "required"=true, "description"="password field"}
+     *      },
+     *      statusCodes={
+     *         200="Returned when successful",
+     *         422="Returned when validation fails",
+     *     }
+     * )
+     * @param Request $request
+     * @return mixed
+     */
     public function indexAction(Request $request)
     {
         $validationMessages = FormValidator::validate($request);

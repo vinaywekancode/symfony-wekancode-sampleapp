@@ -1,3 +1,8 @@
+NelmioApiDocBundle:
+    resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
+    prefix:   /api/doc
+
+
 user:
     resource: "@UserBundle/Resources/config/routing.php"
     prefix:   /
