@@ -20,12 +20,12 @@ $container->setDefinition(
 
 */
 
-//$definition = new Definition();
+$definition = new Definition();
 
-//$definition
-//    ->setAutowired(true)
-//    ->setAutoconfigured(true)
-//    ->setPublic(false);
-//
-//
-//$this->registerClasses($definition, 'UserBundle\\', '../*', '../../{Entity,Repository}');
+$definition
+    ->setAutowired(true)
+    ->setAutoconfigured(true)
+    ->setPublic(false);
+
+
+//$this->registerClasses($definition, 'UserBundle\\', '../../../UserBundle/*', '../../../UserBundle/{Entity,Repository}');
