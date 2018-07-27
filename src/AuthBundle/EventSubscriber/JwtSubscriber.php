@@ -28,14 +28,6 @@ class JwtSubscriber implements EventSubscriberInterface
         }
 
         if ($controller[0] instanceof JwtAuthenticatedController) {
-//            $token = $event->getRequest()->query->get('token');
-//            if (!in_array($token, $this->tokens)) {
-//                throw new AccessDeniedHttpException('This action needs a valid token!');
-//            }
-
-            if($event->getRequest()->getRequestUri() === "/auth/login"){
-                return;
-            }
 
             if(!$event->getRequest()->headers->has('Authorization')){
                 throw new AccessDeniedHttpException('Bearer token is required');
