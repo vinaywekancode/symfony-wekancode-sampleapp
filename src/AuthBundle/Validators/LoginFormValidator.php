@@ -9,7 +9,7 @@ use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\Email;
 use AppBundle\Traits\JsonResponseTrait;
 
-class FormValidator
+class LoginFormValidator
 {
     use JsonResponseTrait;
 

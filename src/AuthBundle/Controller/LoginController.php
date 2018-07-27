@@ -6,7 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use UserBundle\Entity\User;
 use AppBundle\Traits\JsonResponseTrait;
-use AuthBundle\Validators\FormValidator;
+use AuthBundle\Validators\LoginFormValidator;
 use AuthBundle\Traits\JwtTrait;
 use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 
@@ -35,7 +35,7 @@ class LoginController extends Controller
      */
     public function loginAction(Request $request)
     {
-        $validationMessages = FormValidator::validate($request);
+        $validationMessages = LoginFormValidator::validate($request);
         if(count($validationMessages) > 0){
             return $this->errorResponse($validationMessages, 422);
         }

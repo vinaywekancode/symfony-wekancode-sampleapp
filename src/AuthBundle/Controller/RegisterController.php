@@ -6,7 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use UserBundle\Entity\User;
 use AppBundle\Traits\JsonResponseTrait;
 use AuthBundle\Traits\JwtTrait;
-use AuthBundle\Validators\FormValidator;
+use AuthBundle\Validators\RegistrationFormValidator;
 use Symfony\Component\HttpFoundation\Request;
 use Carbon\Carbon;
 use Nelmio\ApiDocBundle\Annotation\ApiDoc;
@@ -37,7 +37,7 @@ class RegisterController extends Controller
      */
     public function indexAction(Request $request)
     {
-        $validationMessages = FormValidator::validate($request);
+        $validationMessages = RegistrationFormValidator::validate($request);
         if(count($validationMessages) > 0){
             return $this->errorResponse($validationMessages, 422);
         }
