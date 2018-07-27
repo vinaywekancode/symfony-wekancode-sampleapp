@@ -14,7 +14,7 @@ trait JwtTrait
             "iss" => "",
             "aud" => "",
             "iat" => Carbon::now()->timestamp,
-            "nbf" => Carbon::now()->addSecond(10)->timestamp,
+            "nbf" => Carbon::now()->timestamp,
             "data" => $data
         ];
 
