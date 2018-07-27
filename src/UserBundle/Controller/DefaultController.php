@@ -35,7 +35,7 @@ class DefaultController extends Controller implements JwtAuthenticatedController
      *      },
      *      statusCodes={
      *         200="Returned when successful",
-     *         403="Returned when the user is not authorized",
+     *         401="Returned when the user is not authorized",
      *     }
      * )
      * @param Request $request
@@ -44,7 +44,7 @@ class DefaultController extends Controller implements JwtAuthenticatedController
     public function allAction(Request $request)
     {
         if($this->canViewAllUsers((array) $request->request->get('decodedToken')) === false){
-            throw $this->createAccessDeniedException("Access not allowed");
+            return $this->errorResponse("Access denied", 401);
         }
 
         $users = $this->getDoctrine()
@@ -67,18 +67,18 @@ class DefaultController extends Controller implements JwtAuthenticatedController
      *      },
      *      statusCodes={
      *         200="Returned when successful",
-     *         403="Returned when the user is not authorized",
+     *         401="Returned when the user is not authorized",
      *     }
      * )
      * @Route("/users/{id}")
-     * @ParamConverter("post", class="UserBundle:User")
+     * @ParamConverter("get", class="UserBundle:User")
      * @param Request $request
      * @param User $user
      * @return JsonResponseTrait
      */
     public function showAction(Request $request, User $user){
         if($this->canView((array) $request->request->get('decodedToken'), $user) === false){
-            throw $this->createAccessDeniedException("Access not allowed");
+            return $this->errorResponse("Access denied", 401);
         }
 
         return $this->successResponse([
