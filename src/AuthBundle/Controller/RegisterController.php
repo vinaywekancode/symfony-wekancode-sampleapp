@@ -24,7 +24,8 @@ class RegisterController extends Controller
      *      parameters={
      *            {"name"="name", "dataType"="string", "required"=true, "description"="name field"},
      *            {"name"="email", "dataType"="string", "required"=true, "description"="email field"},
-     *            {"name"="password", "dataType"="string", "required"=true, "description"="password field"}
+     *            {"name"="password", "dataType"="string", "required"=true, "description"="password field"},
+     *            {"name"="role", "dataType"="string", "required"=false, "description"="Role is optional. default is ROLE_USER"}
      *      },
      *      statusCodes={
      *         200="Returned when successful",
