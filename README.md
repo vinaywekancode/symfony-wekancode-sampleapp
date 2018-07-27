@@ -24,4 +24,10 @@ Requirements
 
 Documentation
 ---------------
-After running the server, visit http://localhost:8000/api/doc for swagger documentation
+After running the server, visit http://localhost:8000/api/doc for swagger documentation.
+
+Folder Structure
+-----------------
+1) Modules are separated into bundles.
+2) Form validations classes are grouped in Validators folder.
+3) Common class, trait which are shared across bundles are grouped in AppBundle.
